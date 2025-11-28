@@ -59,7 +59,7 @@ int main()
 	switch (choice)
 	{
 	case 1:
-		car = new SportCar( string("metal"), );
+		car = new SportCar("metal", );
 		break;
 	default:
 		cout << "Invalid choice." << endl;
