@@ -37,6 +37,7 @@ public:
 
 	void Print()
 	{
+		Car::Print();
 		cout << "Brand: " << brand << endl;
 		cout << "Passengers: " << passengers << " persons" << endl;
 		cout << "Mileage: " << mileage << " km/l" << endl;
@@ -47,6 +48,21 @@ public:
 
 int main()
 {
+	Car* car = nullptr;
 
+	int choice = 0;
 
+	cout << "1. Car Sport" << endl;
+
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+		car = new SportCar( string("metal"), );
+		break;
+	default:
+		cout << "Invalid choice." << endl;
+		return 1;
+	}
 }
