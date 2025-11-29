@@ -22,7 +22,6 @@ public:
 	}
 
 	virtual string GetColor() const = 0;
-	virtual int GetSpeed() const = 0;
 
 };
 
@@ -47,6 +46,8 @@ public:
 		cout << "Speed: " << speed << "km/h" << endl;
 		cout << "Fuel: " << fuel << " liters" << endl;
 	}
+
+	virtual string GetColor() const { return color; }
 };
 
 class RetroCar : public Car
@@ -59,16 +60,14 @@ protected:
 	double fuel;
 	int year;
 	string owner;
-	bool hasRadio;
 	double trunkCapacity;
-	bool chromedTrim;
 public:
 	RetroCar(string bd, string col, double we, double pr,
 		string br, int pass, double mil, int sp, double f,
-		int yr, string own, bool radio, double trunk, bool chrome)
+		int yr, string own, double trunk)
 		: Car(bd, col, we, pr),
 		brand(br), passengers(pass), mileage(mil), speed(sp), fuel(f),
-		year(yr), owner(own), hasRadio(radio), trunkCapacity(trunk), chromedTrim(chrome) {}
+		year(yr), owner(own), trunkCapacity(trunk) {}
 
 	void Print()
 	{
@@ -80,10 +79,10 @@ public:
 		cout << "Fuel: " << fuel << " liters" << endl;
 		cout << "Year: " << year << endl;
 		cout << "Owner: " << owner << endl;
-		cout << "Has radio: " << (hasRadio ? "Yes" : "No") << endl;
 		cout << "Trunk capacity: " << trunkCapacity << " liters" << endl;
-		cout << "Chromed trim: " << (chromedTrim ? "Yes" : "No") << endl;
 	}
+
+	virtual string GetColor() const { return color; }
 
 };
 
@@ -105,7 +104,7 @@ int main()
 		car = new SportCar("Aluminum", "Red", 1200, 35000.0, "Ferrari", 2, 12.5, 320, 60.0);
 		break;
 	case 2:
-		car = new RetroCar("Steel", "Cream", 1500, 18000.0, "VW Beetle", 4, 8.0, 140, 50.0, 1967, "Ivan Petrov", true, 320.0, true);
+		car = new RetroCar("Steel", "Cream", 1500, 18000.0, "VW Beetle", 4, 8.0, 140, 50.0, 1967, "Ivan Petrov", 320.0);
 		break;
 	default:
 		cout << "Invalid choice." << endl;
