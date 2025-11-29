@@ -17,7 +17,7 @@ public:
 	{
 		cout << "Body material: " << bodymaterial << endl;
 		cout << "Color: " << color << endl;
-		cout << "Weight: " << weight << endl;
+		cout << "Weight: " << weight << "Kg" << endl;
 		cout << "Price: " << price << "$" << endl;
 	}
 
@@ -53,16 +53,22 @@ int main()
 	int choice = 0;
 
 	cout << "1. Car Sport" << endl;
+	cout << "Make your choice: ";
 
 	cin >> choice;
 
 	switch (choice)
 	{
 	case 1:
-		car = new SportCar("metal", );
+		car = new SportCar("Aluminum", "Red", 1200, 35000.0, "Ferrari", 2, 12.5, 320, 60.0);
 		break;
 	default:
 		cout << "Invalid choice." << endl;
 		return 1;
 	}
+
+	car->Print();
+
+	delete car;
+	return 0;
 }
